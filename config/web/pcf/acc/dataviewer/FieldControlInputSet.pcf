@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../pcf.xsd">
+  <InputSet
+    id="FieldControlInputSet">
+    <Require
+      name="pageProcess"
+      type="acc.dataviewer.ui.DataViewerPageProcess"/>
+    <Require
+      name="position"
+      type="int"/>
+    <ContentInput>
+      <Link
+        action="pageProcess.Fields.moveFieldFirst(position)"
+        available="position &gt; 1"
+        id="FieldMoveFirstBtn"
+        label="&quot;&lt;&lt;&quot;"
+        styleClass="miniButton"/>
+      <Link
+        action="pageProcess.Fields.moveFieldBy(position, -1)"
+        available="position &gt; 1"
+        id="FieldMoveBckBtn"
+        label="&quot;&lt;&quot;"
+        styleClass="miniButton"/>
+      <Link
+        action="pageProcess.Fields.moveFieldBy(position, 1)"
+        available="position &lt; pageProcess.FieldsCount-1"
+        id="FieldMoveFwdBtn"
+        label="&quot;&gt;&quot;"
+        styleClass="miniButton"/>
+      <Link
+        action="pageProcess.Fields.moveFieldLast(position)"
+        available="position &lt; pageProcess.FieldsCount-1"
+        id="FieldMoveLastBtn"
+        label="&quot;&gt;&gt;&quot;"
+        styleClass="miniButton"/>
+      <Link
+        id="FieldSpaceBtn"
+        label="&quot; &quot;"/>
+      <Link
+        action="pageProcess.Fields.hideField(position)"
+        id="FieldHideBtn"
+        label="&quot;x&quot;"
+        styleClass="miniButton"/>
+    </ContentInput>
+  </InputSet>
+</PCF>
